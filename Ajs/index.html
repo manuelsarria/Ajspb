@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ej de AngularJS</title>
+</head>
+<body>
+
+<div ng-app="pruebaApp" ng-controller="pruebaAppCtrl as vm" ng-init="pensamientos = [];">
+    <h1>App de JS</h1>
+    <p>
+        ¿Qué hay de nuevo?
+        <br />
+        <input type="text" ng-model="nuevoPensamiento" />
+        <input type="button" value="Agregar" ng-click="pensamientos.push(nuevoPensamiento); nuevoPensamiento = '';" />
+    </p>
+    <h2>Pensamientos que has tenido</h2>
+    <p ng-repeat="pensamiento in pensamientos" ng-init="paso = $index">
+        Pensaste esto: {{pensamiento}} (Iteración con índice {{paso}})
+    </p>
+    <p>
+      {{vm.algo}}
+    </p>
+</div>
+
+<script type='text/javascript' src="angular.min.js"></script>
+<script type='text/javascript' src="app.js"></script>
+</body>
+</html>
