@@ -4,100 +4,101 @@ import javax.swing.JOptionPane;
 
 public class MainProyect {
 
-	public String completeName, address, jobTitle;
-	public static int selected;
-	public static int val;
+  public String completeName, address, jobTitle;
+  public static int selected;
+  public static int val;
+  public static double gananciasE = 500, pagoHora = 3.00;
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
 
-		while (selected != 0) {
+    while (selected != 0) {
 
-			try {
-				String employeeType = JOptionPane.showInputDialog(null,
-						"************************\nSeleccione le tipo de empleado:\n1.- Empleado de planta"
-								+ "\n2.- Empleado por destajo\n" + "3.- Empleado por hora\n"
-								+ "0.- Salir del Pedido\n************************",
-						"*****EMPLEADOS*****", JOptionPane.PLAIN_MESSAGE);
-				selected = Integer.parseInt(employeeType);
-				
-				String completeName = JOptionPane.showInputDialog(null, "ingrese el nombre completo del empleado",
-						JOptionPane.PLAIN_MESSAGE);
-				String address = JOptionPane.showInputDialog(null, "ingrese la direccion del empleado",
-						JOptionPane.PLAIN_MESSAGE);
-				String jobTitle = JOptionPane.showInputDialog(null, "ingrese el nombre del puesto del empleado",
-						JOptionPane.PLAIN_MESSAGE);
+      try {
+        String employeeType = JOptionPane.showInputDialog(null,
+            "************************\nSeleccione le tipo de empleado:\n1.- Empleado de planta"
+                + "\n2.- Empleado por destajo\n" + "3.- Empleado por hora\n"
+                + "0.- Salir del Pedido\n************************",
+            "*****EMPLEADOS*****", JOptionPane.PLAIN_MESSAGE);
+        selected = Integer.parseInt(employeeType);
+
+        String completeName = JOptionPane.showInputDialog(null,
+            "ingrese el nombre completo del empleado", JOptionPane.PLAIN_MESSAGE);
+        String address = JOptionPane.showInputDialog(null, "ingrese la direccion del empleado",
+            JOptionPane.PLAIN_MESSAGE);
+        String jobTitle = JOptionPane.showInputDialog(null,
+            "ingrese el nombre del puesto del empleado", JOptionPane.PLAIN_MESSAGE);
 
 
-				switch (selected) {
-				case 1:
-					
+        switch (selected) {
+          case 1:
 
-					String employeeTypeP = JOptionPane.showInputDialog(null,
-							"***********\n Tipo de empleado de planta: \n 1. Empleado de planta aministrativo:"
-									+ "\n2.Empleado de planta operativo",
-							JOptionPane.PLAIN_MESSAGE);
-					int emType = Integer.parseInt(employeeTypeP);
-					
-					if (emType == 1) {
-						
-						
-						
-					}
 
-//					if (vas > 0) {
-//
-//						String ventV = JOptionPane.showInputDialog(null, "cuantos vasos de Limonada sin azucar desea",
-//								"*****LIMONADAS*****", JOptionPane.PLAIN_MESSAGE);
-//						obj2.setVentaVasos(Integer.parseInt(ventV));
-//						obj2.calcularPrecio();
-//						obj2.totalVasosUtilizados();
-//						total = (int) (total + obj2.calcularPrecio());
-//						vasos = (int) (vasos - obj2.totalVasosUtilizados());
-//
-//					} else {
-//
-//						JOptionPane.showMessageDialog(null, "ya no hay mas vasos regrese pronto..");
-//					}
+            String employeeTypeP = JOptionPane.showInputDialog(null,
+                "***********\n Tipo de empleado de planta: \n 1. Empleado de planta aministrativo:"
+                    + "\n2.Empleado de planta operativo",
+                JOptionPane.PLAIN_MESSAGE);
 
-					break;
-				case 2:
-					String ventV = JOptionPane.showInputDialog(null, "cuantos vasos de Limonada sin azucar desea",
-							"*****LIMONADAS*****", JOptionPane.PLAIN_MESSAGE);
-					int sinAzucar = Integer.parseInt(ventV);
-					venta = obj.calcularPrecio(sinAzucar);
-					JOptionPane.showMessageDialog(null, "Su compra fue procesada, total a pagar: " + venta);
-					ventasTotales = ventasTotales + venta;
-//
-//					String ventV = JOptionPane.showInputDialog(null, "cuantos vasos de Limonada con azucar desea",
-//							"*****LIMONADAS*****", JOptionPane.PLAIN_MESSAGE);
-//					obj1.setVentaVasos(Integer.parseInt(ventV));
-//					String ventA = JOptionPane.showInputDialog(null, "cuantas cucaharadas de azucar por Limonada desea",
-//							"*****LIMONADAS*****", JOptionPane.PLAIN_MESSAGE);
-//					obj1.setAzucarUsada(Integer.parseInt(ventA));
-//					total = (int) (total + obj1.calcularPrecio());
-//					vasos = (int) (vasos - obj1.totalVasosUtilizados());
-//					azucar = (int) (azucar - obj1.totalAzucar());
+            int emType = Integer.parseInt(employeeTypeP);
 
-					break;
-				case 3:
+            String antiguedad = JOptionPane.showInputDialog(null,
+                "ingrese la antiguedad del empleado", JOptionPane.PLAIN_MESSAGE);
 
-					JOptionPane.showMessageDialog(null,
-							"Total Dinero es: " + ventasTotales + "\n Vasos Consumidos es: "
-									+ obj.totalVasosUtilizados() + "\n Cucharadas de azucar cosumida es: "
-									+ obj.totalAzucarUtilizada());
-					break;
-				case 0:
-					JOptionPane.showMessageDialog(null, "Pedido Terminado!");
-					break;
-				default:
-					JOptionPane.showMessageDialog(null, "Opcion no Reconocida");
-					break;
-				}
+            if (emType == 1) {
 
-			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null, "Uoop! Error!");
-			}
-		}
-	}
+
+              PlantEmployee obj = new PlantEmployee(completeName, address, jobTitle, antiguedad,
+                  gananciasE, pagoHora);
+
+            } else {
+
+              String horasL = JOptionPane.showInputDialog(null,
+                  "ingrese la cantidad de horas trabajadas del empleado",
+                  JOptionPane.PLAIN_MESSAGE);
+              int horasT = Integer.parseInt(horasL);
+
+              PlantEmployee obj =
+                  new PlantEmployee(completeName, address, jobTitle, antiguedad, pagoHora, horasT);
+
+            }
+
+            break;
+          case 2:
+
+            String products = JOptionPane.showInputDialog(null,
+                "ingrese la cantidad de productos elaborados", JOptionPane.PLAIN_MESSAGE);
+            int productE = Integer.parseInt(products);
+            String Cproducts = JOptionPane.showInputDialog(null,
+                "ingrese el costo de los productos", JOptionPane.PLAIN_MESSAGE);
+            int CproductE = Integer.parseInt(Cproducts);
+
+            CommissionEmployee CommissionEmployee =
+                new CommissionEmployee(completeName, address, jobTitle, productE, CproductE);
+            //
+            break;
+          case 3:
+
+            String horasL = JOptionPane.showInputDialog(null,
+                "ingrese la cantidad de horas trabajadas del empleado", JOptionPane.PLAIN_MESSAGE);
+            int horasT = Integer.parseInt(horasL);
+            String pagoH = JOptionPane.showInputDialog(null,
+                "ingrese el pago por hora", JOptionPane.PLAIN_MESSAGE);
+            int pagoHo = Integer.parseInt(pagoH);
+            
+            HourlyEmployee HourlyEmployee = new HourlyEmployee(completeName, address, jobTitle, pagoHo, horasT);
+
+            break;
+          case 0:
+            JOptionPane.showMessageDialog(null, "fin del Programa!");
+            break;
+          default:
+            JOptionPane.showMessageDialog(null, "Opcion no Reconocida");
+            break;
+        }
+
+      } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Uoop! Error!");
+      }
+    }
+  }
 
 }

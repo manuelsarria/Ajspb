@@ -2,45 +2,47 @@ package proyecto.empleados;
 
 public class CommissionEmployee extends Employee {
 
-	private double sales, commissionRate;
+  private double product, commissionRate;
 
-	public CommissionEmployee(String name, String direccion, String puesto, double Csales, double rate) {
-		super(name, direccion, puesto);
-		setSales(Csales);
-		setCommissionRate(rate);
-	}
+  public CommissionEmployee(String name, String direccion, String puesto, double products,
+      double rate) {
+    super(name, direccion, puesto);
+    setProduct(products);
+    setCommissionRate(rate);
+  }
 
-	public double getSales() {
-		return sales;
-	}
+  public double getProduct() {
+    return product;
+  }
 
-	public void setSales(double Csales) {
-		if (Csales >= 0.0)
-			sales = Csales;
-		else
-			throw new IllegalArgumentException("las ventas deben ser mayor a 0");
-	}
+  public void setProduct(double products) {
+    if (products >= 0.0)
+      product = products;
+    else
+      throw new IllegalArgumentException("las ventas deben ser mayor a 0");
+  }
 
-	public double getCommissionRate() {
-		return commissionRate;
-	}
+  public double getCommissionRate() {
+    return commissionRate;
+  }
 
-	public void setCommissionRate(double rate) {
-		if (rate > 0.0 && rate < 1.0)
-			commissionRate = rate;
-		else
-			throw new IllegalArgumentException("la tasa de comision debe ser mayor a 0 y menor a 1");
-	}
+  public void setCommissionRate(double rate) {
+    if (rate > 0.0)
+      commissionRate = rate;
+    else
+      throw new IllegalArgumentException("el costo del producto debe ser mayor a 0");
+  }
 
-	@Override
-	public double earnings() {
-		return getCommissionRate() * getSales();
-	}
+  @Override
+  public double earnings() {
+    return getCommissionRate() * getProduct();
+  }
 
-	@Override
-	public String toString() {
-		return String.format("%s: %s\n%s: $%,.2f; %s: %.2f", "comision del empleado: ",
-				super.toString() + " ventas " + getSales(), "porcentaje de comision :", getCommissionRate());
-	}
+  @Override
+  public String toString() {
+    return String.format("%s: %s\n%s: $%,.2f; %s: %.2f", "Empleado por destajo: ",
+        super.toString() + "productos producidos " + getProduct(), "pago por producto :",
+        getCommissionRate() + "total :" + earnings());
+  }
 
 }

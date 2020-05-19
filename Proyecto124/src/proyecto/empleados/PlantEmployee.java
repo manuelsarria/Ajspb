@@ -5,7 +5,8 @@ public class PlantEmployee extends Employee {
 	public String antiguedad;
 	public double companyEarnings, salHora;
 	public int horasT;
-
+	
+	// Empleado administrativo
 	public PlantEmployee(String name, String direccion, String puesto, String antiguedad, double companyEarnings,
 			double hourlyWage) {
 		super(name, direccion, puesto);
@@ -13,7 +14,7 @@ public class PlantEmployee extends Employee {
 		setAntiguedad(antiguedad);
 		setSalHora(hourlyWage);
 	}
-
+	// Empleado operativo
 	public PlantEmployee(String name, String direccion, String puesto, String antiguedad, double hourlyWage,
 			int horasT) {
 		super(name, direccion, puesto);
@@ -61,7 +62,7 @@ public class PlantEmployee extends Employee {
 	public double earnings() {
 
 		if (companyEarnings > 0) {
-			return (getCompanyEarnings() * 0.2) * 40 - (((getCompanyEarnings() * 0.2) * 40) * 0.5);
+			return (getCompanyEarnings() * 0.2) + (40 * getSalHora()) - (((getCompanyEarnings() * 0.2) * 40) * 0.5);
 		} else {
 
 			if (getHorasT() <= 40)
@@ -76,7 +77,7 @@ public class PlantEmployee extends Employee {
 	@Override
 	public String toString() {
 		return String.format("Empleado de planta: %s\n%s: $%,.2f; %s: %,.2f",
-				super.toString() + " salario por hora " + getWage());
+				super.toString() + " salario " + earnings());
 	}
 
 }
