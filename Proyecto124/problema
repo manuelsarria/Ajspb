@@ -1,0 +1,21 @@
+
+Capturar la información de varios empleados de la empresa dependiendo de su categoría. Todos los empleados tienen en común la información siguiente: Nombre completo, dirección, teléfono y nombre del puesto.
+
+La empresa maneja varios tipos de empleados, dependiendo del tipo se calcula su sueldo:  
+
+Empleado de planta: Adicionalmente a los datos del empleado se guarda su antigüedad. Su sueldo es fijo 40 horas de trabajo por semana. 
+
+Se manejan dos tipos de empleados de planta: Administrativo y Operativo. 
+
+•	El empleado de planta Administrativo recibe un bono adicional correspondiente a un porcentaje en las ganancias de la empresa.
+•	 El empleado de planta Operativo dado el riesgo de su trabajo, si trabaja mas de 40 horas, las horas adicionales se le pagan como horas extras al doble que las normales.
+Al pago total de los empleados de planta se debe restar el 5% de impuesto.
+
+Empleado por destajo: Su sueldo se calcula en base al numero de productos   
+elaborados, cada producto tiene el mismo costo.  No paga impuestos   
+adicionales.
+Empleado por hora: Su sueldo se calcula en base a las horas trabajadas  y   
+cada hora se paga a una tarifa fija que puede variar.
+No paga impuestos adicionales.
+
+Se deberá realizar la visualización de los datos de un empleado dado y calcular su sueldo hasta ese día.  Además, debe calcularse el neto a pagar a los empleados de la nomina de la empresa para hacerse un retiro del banco exactamente por el neto a pagar.
