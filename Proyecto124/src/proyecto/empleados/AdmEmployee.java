@@ -1,13 +1,11 @@
 package proyecto.empleados;
 
-public class PlantEmployee extends Employee {
+public class AdmEmployee extends Employee {
 
-	public String antiguedad;
-	public double companyEarnings, salHora, bono = 50, total;
-	public int horasT;
+	public double companyEarnings, salHora, total;
+	public double bono = 50;
 
-	// Empleado administrativo
-	public PlantEmployee(String name, String direccion, String puesto, String telefono, double companyEarnings,
+	public AdmEmployee(String name, String direccion, String puesto, String telefono, double companyEarnings,
 			double hourlyWage) {
 		super(name, direccion, puesto, telefono);
 		setCompanyEarnings(companyEarnings);
@@ -49,7 +47,7 @@ public class PlantEmployee extends Employee {
 		String cadena = super.Impresion()+ 
 				"\n Horas trabajadas: " + "40"+
 				"\n bono de antiguedad : " + bono +
-				"\n tipo de empleado : " + "Administrativo"+
+				"\n tipo de empleado : " + "Empleado de planta Administrativo"+
 				"\n Salario total: " + salAdministrativo() ;
 		
 		return cadena;

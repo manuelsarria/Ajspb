@@ -2,11 +2,11 @@ package proyecto.empleados;
 
 public class HourlyEmployee extends Employee {
 
-	private double wage, hours; // salario por hora
+	private double wage, hours;
 
-	public HourlyEmployee(String name, String direccion, String puesto, double hourlyWage, double hoursWorked) {
+	public HourlyEmployee(String name, String direccion, String puesto, String phone, double hourlyWage, double hoursWorked) {
 		
-		super(name, direccion, puesto);
+		super(name, direccion, puesto, phone);
 		setWage(hourlyWage);
 		setHours(hoursWorked);
 	}
@@ -35,18 +35,11 @@ public class HourlyEmployee extends Employee {
 		else
 			throw new IllegalArgumentException("Las horas trabajadas deben ser mayor a 0 y menor o igual a 60");
 	}
-
-	@Override
-	public double earnings() {
-	  
-			return getWage() * getHours();
-		
-	}
 	
 	@Override
 	public String toString() {
 		return String.format("Empleado por hora: %s\n%s: $%,.2f; %s: %,.2f",
-				super.toString() + " salario por hora " + getWage() + "total :"+ earnings());
+				super.toString() + " salario por hora " + getWage() + "total :");
 	}
 
 }

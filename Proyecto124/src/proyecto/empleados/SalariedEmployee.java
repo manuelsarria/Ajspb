@@ -4,9 +4,9 @@ public class SalariedEmployee extends Employee {
 
 	private double basicSalary;
 
-	public SalariedEmployee(String name, String direccion, String puesto, double salary) {
+	public SalariedEmployee(String name, String direccion, String puesto, String phone, double salary) {
 
-		super(name, direccion, puesto);
+		super(name, direccion, puesto, phone);
 		setBasicSalary(salary);
 	}
 
@@ -29,11 +29,6 @@ public class SalariedEmployee extends Employee {
 	public String toString() {
 		return String.format("Empleado asalariado: %s\n%s: $%,.2f",
 				super.toString() + " salario basico " + getBasicSalary());
-	}
-
-	@Override
-	public double earnings() {
-		return 0;
 	}
 
 }

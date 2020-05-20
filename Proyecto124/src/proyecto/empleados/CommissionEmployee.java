@@ -4,9 +4,9 @@ public class CommissionEmployee extends Employee {
 
   private double product, commissionRate;
 
-  public CommissionEmployee(String name, String direccion, String puesto, double products,
+  public CommissionEmployee(String name, String direccion, String puesto, String phone, double products,
       double rate) {
-    super(name, direccion, puesto);
+    super(name, direccion, puesto, phone);
     setProduct(products);
     setCommissionRate(rate);
   }
@@ -34,15 +34,10 @@ public class CommissionEmployee extends Employee {
   }
 
   @Override
-  public double earnings() {
-    return getCommissionRate() * getProduct();
-  }
-
-  @Override
   public String toString() {
     return String.format("%s: %s\n%s: $%,.2f; %s: %.2f", "Empleado por destajo: ",
         super.toString() + "productos producidos " + getProduct(), "pago por producto :",
-        getCommissionRate() + "total :" + earnings());
+        getCommissionRate() + "total :");
   }
 
 }

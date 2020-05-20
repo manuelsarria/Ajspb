@@ -3,6 +3,10 @@ package proyecto.empleados;
 public class Employee {
 
 	String completeName, address, jobName, phoneNumber;
+	
+	public Employee() {
+		
+	}
 
 	public Employee(String name, String direccion, String puesto, String telefono) {
 
@@ -38,11 +42,6 @@ public class Employee {
 
 	public double calcImpuesto(double par) {
 		return (par * 0.05);
-	}
-
-	@Override
-	public String toString() {
-		return "Nombre completo" + completeName + ", Direccion=" + address + ", Nombre del puesto=" + jobName;
 	}
 
 	String Impresion() {
