@@ -4,10 +4,10 @@ public class HourlyEmployee extends Employee {
 
 	private double wage, hours;
 
-	public HourlyEmployee(String name, String direccion, String puesto, String phone, double hourlyWage, double hoursWorked) {
+	public HourlyEmployee(String name, String direccion, String puesto, String phone, double horasTra, double hoursWorked) {
 		
 		super(name, direccion, puesto, phone);
-		setWage(hourlyWage);
+		setWage(horasTra);
 		setHours(hoursWorked);
 	}
 	
@@ -17,10 +17,10 @@ public class HourlyEmployee extends Employee {
 		return wage;
 	}
 
-	public void setWage(double hourlyWage) {
+	public void setWage(double horasTra) {
 
-		if (hourlyWage > 0.0)
-			wage = hourlyWage;
+		if (horasTra > 0.0)
+			wage = horasTra;
 		else
 			throw new IllegalArgumentException("El salario por hora debe ser mayor a 0");
 	}
@@ -36,10 +36,18 @@ public class HourlyEmployee extends Employee {
 			throw new IllegalArgumentException("Las horas trabajadas deben ser mayor a 0 y menor o igual a 60");
 	}
 	
-	@Override
-	public String toString() {
-		return String.format("Empleado por hora: %s\n%s: $%,.2f; %s: %,.2f",
-				super.toString() + " salario por hora " + getWage() + "total :");
+	public double salHours() {
+		
+		return (getHours() * getWage());
+	}
+	
+	String Impresion( ) {
+		String cadena = super.Impresion()+ 
+				"\n Horas trabajadas: " + getHours() +
+				"\n tipo de empleado : " + " Empleado por hora"+
+				"\n Salario total: " + salHours() ;
+		
+		return cadena;
 	}
 
 }

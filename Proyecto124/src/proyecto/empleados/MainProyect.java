@@ -21,14 +21,17 @@ public class MainProyect {
 						"*****EMPLEADOS*****", JOptionPane.PLAIN_MESSAGE);
 				selected = Integer.parseInt(employeeType);
 
-				completeName = JOptionPane.showInputDialog(null, "ingrese el nombre completo del empleado",
-						JOptionPane.PLAIN_MESSAGE);
-				address = JOptionPane.showInputDialog(null, "ingrese la direccion del empleado",
-						JOptionPane.PLAIN_MESSAGE);
-				jobTitle = JOptionPane.showInputDialog(null, "ingrese el nombre del puesto del empleado",
-						JOptionPane.PLAIN_MESSAGE);
-				phone = JOptionPane.showInputDialog(null, "ingrese el numero de telefono del empleado",
-						JOptionPane.PLAIN_MESSAGE);
+				if (selected == 1 || selected == 2 || selected == 3) {
+
+					completeName = JOptionPane.showInputDialog(null, "ingrese el nombre completo del empleado",
+							JOptionPane.PLAIN_MESSAGE);
+					address = JOptionPane.showInputDialog(null, "ingrese la direccion del empleado",
+							JOptionPane.PLAIN_MESSAGE);
+					jobTitle = JOptionPane.showInputDialog(null, "ingrese el nombre del puesto del empleado",
+							JOptionPane.PLAIN_MESSAGE);
+					phone = JOptionPane.showInputDialog(null, "ingrese el numero de telefono del empleado",
+							JOptionPane.PLAIN_MESSAGE);
+				}
 
 				switch (selected) {
 				case 1:
@@ -71,26 +74,29 @@ public class MainProyect {
 
 					String products = JOptionPane.showInputDialog(null, "ingrese la cantidad de productos elaborados",
 							JOptionPane.PLAIN_MESSAGE);
-					int productE = Integer.parseInt(products);
+					double productE = Double.parseDouble(products);
+					
 					String Cproducts = JOptionPane.showInputDialog(null, "ingrese el costo de los productos",
 							JOptionPane.PLAIN_MESSAGE);
-					int CproductE = Integer.parseInt(Cproducts);
+					double CproductE = Double.parseDouble(Cproducts);
 
-					CommissionEmployee CommissionEmployee = new CommissionEmployee(completeName, address, jobTitle,
+					DestEmployee DestEmployee = new DestEmployee(completeName, address, jobTitle,
 							phone, productE, CproductE);
-					//
-					break;
+					JOptionPane.showMessageDialog(null, DestEmployee.Impresion());
+						
+					break; 
 				case 3:
 
 					String horasL = JOptionPane.showInputDialog(null,
 							"ingrese la cantidad de horas trabajadas del empleado", JOptionPane.PLAIN_MESSAGE);
-					int horasT = Integer.parseInt(horasL);
+					double  horasT = Double.parseDouble(horasL);
 					String pagoH = JOptionPane.showInputDialog(null, "ingrese el pago por hora",
 							JOptionPane.PLAIN_MESSAGE);
-					int pagoHo = Integer.parseInt(pagoH);
+					double pagoHo = Double.parseDouble(pagoH);
 
 					HourlyEmployee HourlyEmployee = new HourlyEmployee(completeName, address, jobTitle, phone, pagoHo,
 							horasT);
+					JOptionPane.showMessageDialog(null, HourlyEmployee.Impresion());
 
 					break;
 				case 0:
