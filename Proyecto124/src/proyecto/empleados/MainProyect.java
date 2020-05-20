@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class MainProyect {
 
   public String completeName, address, jobTitle;
-  public static int selected;
+  public static int selected = -1;
   public static int val;
   public static double gananciasE = 500, pagoHora = 3.00;
 
