@@ -3,9 +3,9 @@ package proyecto.empleados;
 public class Employee {
 
 	String completeName, address, jobName, phoneNumber;
-	
+
 	public Employee() {
-		
+
 	}
 
 	public Employee(String name, String direccion, String puesto, String telefono) {

@@ -3,13 +3,14 @@ package proyecto.empleados;
 public class AdmEmployee extends Employee {
 
 	public double companyEarnings, salHora, total;
-	public double bono = 50;
+	public double bonoEmployee;
 
 	public AdmEmployee(String name, String direccion, String puesto, String telefono, double companyEarnings,
-			double hourlyWage) {
+			double hourlyWage, double bonoE) {
 		super(name, direccion, puesto, telefono);
 		setCompanyEarnings(companyEarnings);
 		setSalHora(hourlyWage);
+		setBonoEmployee(bonoE);
 		Impresion();
 	}
 
@@ -32,6 +33,14 @@ public class AdmEmployee extends Employee {
 		this.companyEarnings = companyEarnings;
 	}
 
+	public double getBonoEmployee() {
+		return bonoEmployee;
+	}
+
+	public void setBonoEmployee(double bonoEmployee) {
+		this.bonoEmployee = bonoEmployee;
+	}
+
 	public double porcent(double earnings) {
 
 		return (earnings * 0.02);
@@ -39,17 +48,15 @@ public class AdmEmployee extends Employee {
 
 	public double salAdministrativo() {
 
-		total = (40 * getSalHora() + bono) + porcent(getCompanyEarnings());
+		total = ((40 * getSalHora()) + getBonoEmployee()) + porcent(getCompanyEarnings());
 		return total - super.calcImpuesto(total);
 	}
 
-	String Impresion( ) {
-		String cadena = super.Impresion()+ 
-				"\n Horas trabajadas: " + "40"+
-				"\n bono de antiguedad : " + bono +
-				"\n tipo de empleado : " + "Empleado de planta Administrativo"+
-				"\n Salario total: " + salAdministrativo() ;
-		
+	String Impresion() {
+		String cadena = super.Impresion() + "\n Horas trabajadas: " + "40" + "\n bono de antiguedad : "
+				+ getBonoEmployee() + "\n tipo de empleado : " + "Empleado de planta Administrativo"
+				+ "\n Salario total: " + salAdministrativo();
+
 		return cadena;
 	}
 

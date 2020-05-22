@@ -3,13 +3,15 @@ package proyecto.empleados;
 public class OperEmployee extends Employee {
 
 	public double salHora, total;
-	public double bono = 50;
+	public double bonoOperative;
 	public int horasT;
 
-	public OperEmployee(String name, String direccion, String puesto, String telefono, int horasTra, double PagoH) {
+	public OperEmployee(String name, String direccion, String puesto, String telefono, int horasTra, double PagoH,
+			double bono) {
 		super(name, direccion, puesto, telefono);
 		setSalHora(PagoH);
 		setHorasT(horasTra);
+		setBonoOperative(bono);
 		Impresion();
 	}
 
@@ -32,26 +34,39 @@ public class OperEmployee extends Employee {
 		this.horasT = horasT;
 	}
 
-	public double salOperativo() {
-		
-		if (getHorasT() <= 40) {
-			
-			total = (getSalHora() * getHorasT() + bono);
-			return (total - super.calcImpuesto(total));
-			
-		} else {
-			total = (40 * getHorasT()) + ((getHorasT() - 40) * getSalHora() * 2.0);
-			return (total - super.calcImpuesto(total));
-		}
+	public double getBonoOperative() {
+		return bonoOperative;
 	}
-	
-	String Impresion( ) {
-		String cadena = super.Impresion()+ 
-				"\n Horas trabajadas: " + getHorasT() +
-				"\n bono de antiguedad : " + bono +
-				"\n tipo de empleado : " + " Empleado de planta Operativo"+
-				"\n Salario total: " + salOperativo() ;
-		
+
+	public void setBonoOperative(double bonoOperative) {
+		this.bonoOperative = bonoOperative;
+	}
+
+	public double salOperativo() {
+
+		if ((getHorasT() <= 60) && (getHorasT() >= 0)) {
+
+			total = ((getSalHora() * getHorasT()) + getBonoOperative());
+			return (total - super.calcImpuesto(total));
+
+		} else {
+
+			throw new IllegalArgumentException("Las horas trabajadas deben ser mayor a 0 y menor o igual a 60");
+			// String nota;
+			// return nota="error vuelve a intentarlo";
+			/*
+			 * total = (40 * getHorasT()) + ((getHorasT() - 40) * getSalHora() * 2.0);
+			 * return (total - super.calcImpuesto(total));
+			 */
+		}
+
+	}
+
+	String Impresion() {
+		String cadena = super.Impresion() + "\n Horas trabajadas: " + getHorasT() + "\n bono de antiguedad : "
+				+ getBonoOperative() + "\n tipo de empleado : " + " Empleado de planta Operativo" + "\n Salario total: "
+				+ salOperativo();
+
 		return cadena;
 	}
 
