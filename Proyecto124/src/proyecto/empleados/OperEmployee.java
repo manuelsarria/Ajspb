@@ -70,4 +70,22 @@ public class OperEmployee extends Employee {
 		return cadena;
 	}
 
+	@Override
+	public double salAdministrativo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double salDestajo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double salHours() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

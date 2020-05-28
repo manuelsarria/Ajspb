@@ -1,6 +1,6 @@
 package proyecto.empleados;
 
-public class Employee {
+public abstract class Employee {
 
 	String completeName, address, jobName, phoneNumber;
 
@@ -50,5 +50,13 @@ public class Employee {
 
 		return cadena;
 	}
+
+	public abstract double salAdministrativo();
+
+	public abstract double salOperativo();
+
+	public abstract double salDestajo();
+
+	public abstract double salHours();
 
 }

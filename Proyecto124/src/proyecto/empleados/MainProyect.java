@@ -7,8 +7,9 @@ public class MainProyect {
 	public static String completeName, address, jobTitle, phone;
 	static int selected = -1;
 	public static double gananciasE, pagoHora, nominaEmp = 0, bono, horasT;
-
+	
 	public static void main(String[] args) {
+		Employee employee;
 
 		while (selected != 0) {
 
@@ -56,11 +57,11 @@ public class MainProyect {
 						String bonoE = JOptionPane.showInputDialog(null, "ingrese el bono", JOptionPane.PLAIN_MESSAGE);
 						double bono = Double.parseDouble(bonoE);
 
-						AdmEmployee AdmEmployee = new AdmEmployee(completeName, address, jobTitle, phone, gananciasE,
+						employee = new AdmEmployee(completeName, address, jobTitle, phone, gananciasE,
 								pagoHora, bono);
 
-						JOptionPane.showMessageDialog(null, AdmEmployee.Impresion());
-						nominaEmp = nominaEmp + AdmEmployee.salAdministrativo();
+						JOptionPane.showMessageDialog(null, employee.Impresion());
+						nominaEmp = nominaEmp + employee.salAdministrativo();
 
 					} else if (emType == 2) {
 
@@ -77,10 +78,10 @@ public class MainProyect {
 
 						double bono = Double.parseDouble(bonoOperative);
 
-						OperEmployee OperEmployee = new OperEmployee(completeName, address, jobTitle, phone, horasT,
+						employee = new OperEmployee(completeName, address, jobTitle, phone, horasT,
 								pagoHora, bono);
-						JOptionPane.showMessageDialog(null, OperEmployee.Impresion());
-						nominaEmp = nominaEmp + OperEmployee.salOperativo();
+						JOptionPane.showMessageDialog(null, employee.Impresion());
+						nominaEmp = nominaEmp + employee.salOperativo();
 
 					} else {
 
@@ -99,10 +100,10 @@ public class MainProyect {
 							JOptionPane.PLAIN_MESSAGE);
 					double CproductE = Double.parseDouble(Cproducts);
 
-					DestEmployee DestEmployee = new DestEmployee(completeName, address, jobTitle, phone, productE,
+					employee = new DestEmployee(completeName, address, jobTitle, phone, productE,
 							CproductE);
-					JOptionPane.showMessageDialog(null, DestEmployee.Impresion());
-					nominaEmp = nominaEmp + DestEmployee.salDestajo();
+					JOptionPane.showMessageDialog(null, employee.Impresion());
+					nominaEmp = nominaEmp + employee.salDestajo();
 
 					break;
 				case 3:
@@ -114,10 +115,10 @@ public class MainProyect {
 							JOptionPane.PLAIN_MESSAGE);
 					double pagoHora = Double.parseDouble(pagoH);
 
-					HourlyEmployee HourlyEmployee = new HourlyEmployee(completeName, address, jobTitle, phone, pagoHora,
+					employee = new HourlyEmployee(completeName, address, jobTitle, phone, pagoHora,
 							horasT);
-					JOptionPane.showMessageDialog(null, HourlyEmployee.Impresion());
-					nominaEmp = nominaEmp + HourlyEmployee.salHours();
+					JOptionPane.showMessageDialog(null, employee.Impresion());
+					nominaEmp = nominaEmp + employee.salHours();
 
 					break;
 

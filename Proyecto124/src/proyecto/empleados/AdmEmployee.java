@@ -60,4 +60,22 @@ public class AdmEmployee extends Employee {
 		return cadena;
 	}
 
+	@Override
+	public double salOperativo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double salDestajo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double salHours() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

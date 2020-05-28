@@ -50,4 +50,22 @@ public class HourlyEmployee extends Employee {
 		return cadena;
 	}
 
+	@Override
+	public double salAdministrativo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double salOperativo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double salDestajo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
